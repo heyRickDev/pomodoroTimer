@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --hue: 194;
+  --bg-color: hsl(var(--hue), 5%, 7%);
+  --text-color: hsl(var(--hue), 40%, 98%);
+  --primary-color: hsl(var(--hue), 100%, 63%);
+  --control-bg-color: hsl(var(--hue), 0%, 14%);
+  font-size: clamp(40%, 1% + 2vw, 62.5%);
+}
+html.light {
+  --hue: 194;
+  --text-color: hsl(var(--hue), 5%, 7%);
+  --bg-color: hsl(var(--hue), 40%, 98%);
+  --button-color: hsl(var(--hue), 40%, 98%);
+}
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: grid;
+  height: 100vh;
+  place-content: center;
+}
+#app {
+  display: grid;
+  justify-items: center;
+}
+#switch {
+  position: absolute;
+  top: 3.2rem;
+  right: 3.2rem;
+}
+#switch button {
+  font-size: 3.2rem;
+  color: var(--text-color);
+}
+.flex {
+  display: flex;
+  /* gap: 10px; */
+}
+#timer {
+  font-size: 9rem;
+  font-weight: bold;
+  font-family: sans-serif;
+  /* fonte relogio depois */
+}
+#controls {
+  border-radius: 4rem;
+  background-color: var(--control-bg-color);
+  padding: 2.2rem;
+  gap: 1.6rem;
+}
+button {
+  background-color: transparent;
+  border: none;
+  color: var(--primary-color);
+  font-size: 6.4rem;
+}
+.secondary {
+  color: var(--button-color);
+}
+
+/* controls */
+
+.running .ph-play-circle,
+.running .ph-timer,
+.music-on .ph-speaker-slash,
+html:not(.running) .ph-pause-circle,
+html:not(.running) .ph-stop-circle,
+html:not(.music-on) .ph-speaker-high {
+  display: none;
+}
+.light .ph-sun,
+html:not(.light) .ph-moon {
+  display: none;
+}
